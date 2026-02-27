@@ -5,8 +5,8 @@ moveit_setup_assistant_config:
   srdf:
     relative_path: config/c5a_description.srdf
   package_settings:
-    author_name: lidesheng
-    author_email: lidesheng@agilebot.com.cn
+    author_name: Agilebot
+    author_email: info@agilebot.com.cn
     generated_timestamp: 1731474804
   control_xacro:
     command:

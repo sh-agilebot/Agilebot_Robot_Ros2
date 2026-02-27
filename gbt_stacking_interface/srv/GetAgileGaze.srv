@@ -1,0 +1,6 @@
+# GetAgileGaze.srv
+#
+# Request
+---
+# Response
+gbt_stacking_interface/AgileGaze agile_gaze

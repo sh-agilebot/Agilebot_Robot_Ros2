@@ -1,0 +1,80 @@
+# This file is used to configure the parameters for the stacking task.
+robot_stacking:
+  ros__parameters:
+    grasp_uf_id: 1               # User frame ID for grasping
+    place_uf_id: 2               # User frame ID for placing
+    tf_id: 0                     # Tool frame ID for gripper
+
+    # Script timeout(s) ，wait for grasping and placing.if the speed of robot is too slow, you can increase the timeout.
+    script_timeout: 35.0
+
+    # Service name
+    vision_service: "/gbt_vision/service/AgileGaze"           # Vision service name, can be modified according to actual situation
+    send_script_service: "/gbt_driver/service_server/send_script"  # Send script service name
+    external_trigger_service: '/gbt_stacking/external_trigger'  # External trigger service name
+
+    # Pallet and box dimensions (unit: mm)
+    pallet_w: 250.0              # Pallet width
+    pallet_l: 250.0              # Pallet length
+    box_w: 50.0                  # Box width
+    box_l: 50.0                  # Box length
+    box_h: 50.0                  # Box height
+
+    # Number of layers and layer spacing (unit: mm)
+    layers: 3                    # Number of layers
+    spacing_x: 20.0              # Spacing between layers in X
+    spacing_y: 20.0              # Spacing between layers in Y
+    spacing_z: 20.0              # Spacing between layers in Z
+
+    # Vision service timeout (unit: s)
+    svr_timeout: 5.0             # Vision service timeout
+
+    # Grasping motion related height (unit: mm)
+    grasp_top: 20.0              # Height above the grasp point
+    grasp_lift: 110.0            # Lift height after grasp
+
+    # Grasp points in user frame, used to establish uf (each three values are x, y, z)
+    uf_grasp_points:
+      - 580.0  # Origin X
+      - 175.0  # Origin Y
+      - 0.0    # Origin Z
+
+      - 700.0  # x axis point X
+      - 175.0  # x axis point Y
+      - 0.0    # x axis point Z
+
+      - 580.0  # y axis point X
+      - 190.0  # y axis point Y
+      - 0.0    # y axis point Z
+
+    # Place points in user frame, used to establish uf (each three values are x, y, z)
+    uf_place_points:
+      - -540.0 # Origin X
+      - -45.0  # Origin Y
+      - 0.0    # Origin Z
+
+      - -400.0 # x axis point X
+      - -45.0  # x axis point Y
+      - 0.0    # x axis point Z
+
+      - -540.0 # y axis point X
+      - 172.65 # y axis point Y
+      - 0.0    # y axis point Z
+
+    # Home point joint angles
+    home_point:
+      - 90.934   # Joint 1 angle
+      - 77.43    # Joint 2 angle
+      - -61.098  # Joint 3 angle
+      - 73.667   # Joint 4 angle
+      - -90.0    # Joint 5 angle
+      - -179.066 # Joint 6 angle
+
+    grasp_time: 2.0              # Wait time for gripper or vacuum, can be adjusted according to actual situation
+    # IO control gripper or vacuum, IO mapping should be configured in advance on the robot
+    IO_type: DO                  # IO type
+    IO_id:   1                   # IO ID
+
+    global_speed: 100.0          # Global speed coefficient(%)
+    close_speed: 50.0           # Approach speed to avoid collision
+    move_speed: 100.0            # Move speed (move_joint unit %)

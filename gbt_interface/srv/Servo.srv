@@ -1,0 +1,9 @@
+
+# Service to control servo on/off
+
+bool servo_on  # Target servo state (true = on, false = off)
+
+---
+
+bool success
+string message

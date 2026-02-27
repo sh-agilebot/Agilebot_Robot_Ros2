@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: gbt_description
+    relative_path: urdf/GBT_C7A.urdf
+  srdf:
+    relative_path: config/GBT_C7A.srdf
+  package_settings:
+    author_name: agilebot
+    author_email: lidesheng@agilebot.com.cn
+    generated_timestamp: 1753255027
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

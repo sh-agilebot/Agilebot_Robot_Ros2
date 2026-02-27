@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="c16a_description">
+
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
+    <link name="world"/>
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+    <!-- Import c16a_description urdf file -->
+    <xacro:include filename="$(find gbt_description)/urdf/GBT_C16A_gazebo.urdf" />
+
+
+    <!-- Set Gazebo properties for certain links -->
+    <gazebo reference="base_link">
+        <self_collide>false</self_collide>
+        <gravity>false</gravity>
+    </gazebo>
+    <gazebo reference="link1">
+        <!-- <material>Gazebo/White</material> -->
+        <self_collide>false</self_collide>
+        <gravity>false</gravity>
+    </gazebo>
+    <gazebo reference="link2">
+        <!-- <material>Gazebo/Red</material> -->
+        <gravity>false</gravity>
+    </gazebo>
+    <gazebo reference="link3">
+        <!-- <material>Gazebo/Green</material> -->
+        <gravity>false</gravity>
+    </gazebo>
+    <gazebo reference="link4">
+        <!-- <material>azebo/Orange</material> -->
+        <gravity>false</gravity>
+    </gazebo>
+    <gazebo reference="link5">
+        <!-- <material>Gazebo/Gray</material> -->
+        <gravity>false</gravity>
+    </gazebo>
+    <gazebo reference="link6">
+        <!-- <material>Gazebo/Yellow</material> -->
+        <gravity>false</gravity>
+    </gazebo>
+
+
+    <gazebo>
+        <is_static>true</is_static>
+        <self_collide>true</self_collide>
+    </gazebo>
+
+
+    <!-- ros2_control -->
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="joint1">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint2">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint3">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint4">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint5">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="joint6">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+
+    <!-- load ros2_control plugin -->
+    <!-- If you don’t need to use MoveIt, comment it out -->
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>$(find c16a_moveit_config)/config/ros2_controllers.yaml</parameters>
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+        </plugin>
+    </gazebo>
+
+
+</robot>
+

@@ -1,0 +1,29 @@
+# IO configuration and read service definition
+
+# Values for signal_type:
+# DI = 1  
+# DO = 2 
+# UI = 3  
+# UO = 4  
+# RI = 5  
+# RO = 6  
+# GI = 7  
+# GO = 8  
+
+# Request part
+uint8 signal_type   # IO signal type
+uint8 signal_value  # IO signal value
+uint8 signal_port   # IO signal port
+string command      # Command, options: "set" or "get"
+
+---
+
+# Response part
+bool success        # Success flag
+string message      # Result message
+uint8 signal_value  # IO signal value (returned value in case of 'get')
+
+
+
+
+

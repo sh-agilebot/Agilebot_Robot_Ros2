@@ -1,0 +1,7 @@
+# grasp points and place points
+geometry_msgs/Pose[] grasp_poses
+geometry_msgs/Pose[] place_poses
+
+---
+bool success
+string message

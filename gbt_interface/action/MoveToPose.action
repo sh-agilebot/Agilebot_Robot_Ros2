@@ -1,0 +1,20 @@
+# Request part
+float64 x
+float64 y
+float64 z
+float64 a
+float64 b
+float64 c
+float32 vel      # velocity (unit: mm/s)
+float32 acc      # acceleration [0,1]
+
+---
+
+# Result part
+bool success
+string message
+
+---
+
+# Feedback part - Current position
+geometry_msgs/Pose current_pose

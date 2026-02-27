@@ -1,0 +1,11 @@
+# OfflineTrajectory.action
+# request
+string trajectory_path #  # path to the trajectory file .csv
+# bool use_interpolation=1 #  # whether to use interpolation
+---
+# response
+int32 result
+string message
+---
+sensor_msgs/JointState joint_states #  # joint states of the robot
+

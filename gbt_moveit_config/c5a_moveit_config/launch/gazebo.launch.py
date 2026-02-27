@@ -1,45 +1,67 @@
-import os
-from launch import LaunchDescription
-from launch.actions import ExecuteProcess, RegisterEventHandler
-from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
-from launch.event_handlers import OnProcessExit
-import xacro
-import re
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 """
-文件说明：
-此文件用于启动 Gazebo 仿真环境，并加载机器人模型。
+Copyright © 2026 Agilebot Robotics Ltd. All rights reserved.
+Instruction:
+This file is used to start the Gazebo simulation environment and load the robot model.
+
 """
 
-# 定义一个函数，用于移除 URDF 标签中的注释
+import os
+import re
+
+import xacro
+from launch import LaunchDescription
+from launch.actions import (
+    ExecuteProcess,
+    IncludeLaunchDescription,
+    RegisterEventHandler,
+)
+from launch.event_handlers import OnProcessExit
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+
+
 def remove_comments(text):
-    pattern = r'<!--(.*?)-->'
-    return re.sub(pattern, '', text, flags=re.DOTALL)
+    """
+    remove comments from text
+    Args:
+        text (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    pattern = r"<!--(.*?)-->"
+    return re.sub(pattern, "", text, flags=re.DOTALL)
+
 
 def generate_launch_description():
     """
-    生成启动描述，用于启动 Gazebo 和机器人相关的 ROS 2 节点。
+    generate launch description
     """
-    # 定义机器人名称、包名称和launch文件名称
-    robot_name_in_model = 'gbt_c5a'
-    package_name = 'gbt_gazebo'
-    launch_name = "gazebo_c5a_demo.launch.py"
 
-    # 获取包路径
+    # define robot type, package name and launch file name
+    package_name = "gbt_gazebo"
+    launch_name = "gazebo_demo.launch.py"
+
+    # get package path
     pkg_share = FindPackageShare(package=package_name).find(package_name)
-    launch_script_path = os.path.join(pkg_share, 'launch', launch_name)
+    launch_script_path = os.path.join(pkg_share, "launch", launch_name)
 
-    # 创建启动描述并添加所有动作
     ld = LaunchDescription()
 
-    # 使用 IncludeLaunchDescription 启动另一个launch文件
+    # launch another launch file using IncludeLaunchDescription
     ld.add_action(
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(launch_script_path)
+            PythonLaunchDescriptionSource(launch_script_path),
+            # robot_type is used to load the robot model
+            launch_arguments=[
+                ("robot_type", "C5A"),
+                (
+                    "controller_name",
+                    "gbt_c5a_arm_controller",
+                ),  # define in config/moveit_controllers.yaml
+            ],
         )
     )
 
-   
     return ld

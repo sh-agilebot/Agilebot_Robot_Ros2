@@ -1,0 +1,9 @@
+# Service for sending a script to the robot
+
+string script_name    # Name of the script to be sent
+string script_content # Content of the script
+
+---
+
+bool success
+string message        # Result message (e.g., success or error description)

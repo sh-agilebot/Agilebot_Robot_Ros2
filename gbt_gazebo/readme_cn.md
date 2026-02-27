@@ -1,6 +1,7 @@
 # gbt_gazebo 配置包
 
 ## 简介
+
 该包是用于在 Gazebo 中配置和仿真机器人环境的 Gazebo 配置包，提供了必要的配置文件和启动文件，以便在 Gazebo 中加载和控制机器人。
 
 ## 目录结构
@@ -37,19 +38,36 @@
 ### 启动 Gazebo 仿真
 
 ```bash
-ros2 launch gbt_gazebo gazebo_{机器人型号}_demo.launch.py
-```
-比如：
-```bash
-ros2 launch gbt_gazebo gazebo_c5a_demo.launch.py
+ros2 launch gbt_gazebo gazebo_demo.launch.py <robot_type>:=<机器人型号> controller_name:={控制器名称}
 ```
 
+比如：
+
+```bash
+ros2 launch gbt_gazebo gazebo_demo.launch.py robot_type:=C5A controller_name:=gbt_c5a_arm_controller
+```
+
+>控制器名称通常为 `gbt_<机器人型号>_arm_controller`，具体名称请参考 `gbt_moveit` 包对应机器人的控制器配置文件。
+>比如：`gbt_moveit_config/c5a_moveit_config/config/ros2_controllers.yaml`
+>
+> `controller_name`参数可以不填，将使用默认规则自动拼接，即`gbt_{robot_type.lower()}_arm_controller`。
+
 ## 使用示例
+
 ![](../assets/gazebo.png)
 
 ## 配置与自定义
 
 可以通过修改 `config` 目录中的文件来自定义 Gazebo 仿真环境，包括调整物理参数、添加或删除对象等。
 
+## 注意事项
+
+若gazebo没有正常关闭，请使用以下命令关闭gazebo：
+
+```bash
+kill -9 $(ps aux | grep '[g]azebo' | awk '{print $2}')
+```
+
 ## 许可证
+
 此项目采用 [BSD-3-clause 许可证](https://opensource.org/license/BSD-3-clause)。

@@ -1,0 +1,5 @@
+# ExternalStackingTrigger.srv
+bool trigger
+---
+bool success
+string message

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="GBT_C12A">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="1.333E-06 -0.0061641 0.051682"
+        rpy="0 0 0" />
+      <mass
+        value="13.842" />
+      <inertia
+        ixx="0.040221"
+        ixy="1.3302E-05"
+        ixz="-7.5729E-07"
+        iyy="0.032081"
+        iyz="0.00058993"
+        izz="0.059352" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_base.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-4.7127E-05 0.0057889 0.10293"
+        rpy="0 0 0" />
+      <mass
+        value="31.15" />
+      <inertia
+        ixx="0.15484"
+        ixy="5.7629E-05"
+        ixz="1.0175E-07"
+        iyy="0.14949"
+        iyz="0.00012177"
+        izz="0.097986" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_1.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.094"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.283185307179"
+      upper="6.283185307179"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.25627 1.1532E-05 0.10281"
+        rpy="0 0 0" />
+      <mass
+        value="88.756" />
+      <inertia
+        ixx="0.27835"
+        ixy="0.00048229"
+        ixz="-0.0077364"
+        iyy="5.0986"
+        iyz="3.0613E-05"
+        izz="5.0184" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_2.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0 "  />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 0.082 0.102"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.483529864195"
+      upper="4.625122517784"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="-0.27117 3.4432E-06 0.061195"
+        rpy="0 0 0" />
+      <mass
+        value="40.597" />
+      <inertia
+        ixx="0.060991"
+        ixy="2.6089E-05"
+        ixz="0.031846"
+        iyy="1.7475"
+        iyz="-3.0307E-06"
+        izz="1.7363" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_3.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0.6125 0 0.018"
+      rpy="-3.1416 0 3.1416" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.87979326579"
+      upper="2.87979326579"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="6.5018E-06 2.845E-05 0.051524"
+        rpy="0 0 0" />
+      <mass
+        value="8.3137" />
+      <inertia
+        ixx="0.019136"
+        ixy="1.5554E-07"
+        ixz="3.1721E-07"
+        iyy="0.010018"
+        iyz="-1.1155E-05"
+        izz="0.017943" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_4.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0"/>
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="-0.5605 0 -0.0098"
+      rpy="-3.1416 0 3.1416" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.483529864195"
+      upper="4.625122517784"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="-6.925E-06 -3.1254E-06 -0.051525"
+        rpy="0 0 0" />
+      <mass
+        value="8.316" />
+      <inertia
+        ixx="0.019157"
+        ixy="-2.8321E-07"
+        ixz="4.2716E-07"
+        iyy="0.010013"
+        iyz="9.0766E-06"
+        izz="0.017964" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_5.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0.0738 0.057"
+      rpy="1.5708 0 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-6.283185307179"
+      upper="6.283185307179"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link6">
+    <inertial>
+      <origin
+        xyz="1.446E-08 0.00013423 0.018933"
+        rpy="0 0 0" />
+      <mass
+        value="1.9242" />
+      <inertia
+        ixx="0.0012043"
+        ixy="1.9574E-09"
+        ixz="1.7738E-09"
+        iyy="0.0012178"
+        iyz="1.1555E-06"
+        izz="0.0019174" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/visual/c12a/c12a_6.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="package://gbt_description/meshes/collision/c12a/c12a_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0 0.0738 -0.057"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.283185307179"
+      upper="6.283185307179"
+      effort="100"
+      velocity="1" />
+  </joint>
+</robot>

@@ -1,0 +1,9 @@
+# EmergencyStop.srv
+# emergency stop the robot
+
+# Request
+
+---
+# Response
+bool success        # Success flag
+string message      # Message

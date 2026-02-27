@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-This project includes the URDF files for all robot arm models from Shanghai Jiebot. Users can use this project to visualize the robotic arms in RViz and perform simulation and control within the ROS2 ecosystem. Currently, it only includes the **GBT-C5A series robotic arm**, but more robot models and functionalities will be added over time. The URDF model is specifically designed for **simulation** and **visualization** of the robotic arm within ROS2.
+This project includes the URDF files for all robot arm models from Shanghai Agilebot. Users can use this project to visualize the robotic arms in RViz and perform simulation and control within the ROS2 ecosystem. Currently, it only includes the **GBT-C5A series robotic arm**, but more robot models and functionalities will be added over time. The URDF model is specifically designed for **simulation** and **visualization** of the robotic arm within ROS2.
 
 ## Directory Structure
 
@@ -58,13 +58,13 @@ This project includes the URDF files for all robot arm models from Shanghai Jieb
    Use the following command to visualize the robotic arm in RViz:
 
    ```bash
-   ros2 launch gbt_description display_{robot model}.launch.py
+   ros2 launch gbt_description display_robot.launch.py <robot_type>:=<robot_type>
    ```
 
    For example, to visualize the GBT-C5A robotic arm, use:
 
    ```bash
-   ros2 launch gbt_description display_c5a.launch.py
+   ros2 launch gbt_description display_robot.launch.py robot_type:=C5A
    ```
 
 ## Example Usage
@@ -72,7 +72,7 @@ This project includes the URDF files for all robot arm models from Shanghai Jieb
 **Launch RViz to visualize URDF**
 ![](../assets/rviz.png)
 
-> Example: View the GBT-C5A robotic arm in RViz. Ensure the file path is correct so users can locate `rviz.png`, or replace this image as needed.
+> Example: View the GBT-C5A robotic arm in RViz.
 
 ## Notes
 
@@ -86,17 +86,18 @@ This project includes the URDF files for all robot arm models from Shanghai Jieb
 
 ## Future Development Plans
 
-- [x] Add URDF files for robotic arms
-   - [x] GBT-C5A series robotic arm
-   - [ ] GBT-C12A series robotic arm
-   - [ ] More collaborative robot models
+- [x] Add URDF files for collaborative robotic arms
+  - [x] GBT-C5A series robotic arm
+  - [x] GBT-C7A series robotic arm
+  - [x] GBT-C12A series robotic arm
+  - [x] GBT-C16A series robotic arm
 - [ ] Add URDF files for Puma robotic arms
-   - [ ] GBT-P7B series robotic arm
-   - [ ] Additional Puma robot models
+  - [ ] GBT-P7B series robotic arm
+  - [ ] Additional Puma robot models
 
 - [ ] Add URDF files for Scara robotic arms
-   - [ ] GBT-S3A series robotic arm
-   - [ ] Additional Scara robot models
+  - [ ] GBT-S3A series robotic arm
+  - [ ] Additional Scara robot models
 
 ## Contributions
 

@@ -1,0 +1,23 @@
+# @agilebot/ros2-docs
+
+** 注意这个文件不要使用md格式，防止vitepress也编译了这个文件到文档中
+
+## 命令
+
+```sh
+# 首次使用，安装依赖
+pnpm i
+
+# 调试文档
+pnpm dev
+
+# 生成slug引用
+pnpm generate-ref
+
+# 编译文档
+pnpm build
+
+# 发布文档到GitHub
+pnpm run deploy
+
+```

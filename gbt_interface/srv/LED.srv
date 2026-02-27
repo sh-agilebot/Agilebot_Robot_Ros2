@@ -1,0 +1,8 @@
+# Service to control LED on/off
+
+bool led_on  # Target LED state (true = on, false = off)
+
+---
+
+bool success
+string message

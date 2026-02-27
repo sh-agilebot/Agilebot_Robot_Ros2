@@ -5,14 +5,31 @@
 </div>
 
 # Agiblebot Robot ROS2 Project
+
 # MoveIt Demo
 
 ## Introduction
+
 This project uses the MoveIt Setup Assistant to generate MoveIt2 configuration files for the robot.
 
-For operation instructions, please refer to: https://moveit.picknik.ai/main/doc/examples/setup_assistant/setup_assistant_tutorial.html#step-1-start
+For operation instructions, please refer to: <https://moveit.picknik.ai/main/doc/examples/setup_assistant/setup_assistant_tutorial.html#step-1-start>
+
+> Note:
+>
+> 1. After completing the setup, please manually edit the `max_velocity` field in `config/joint_limits.yaml`, changing integer values to floating-point numbers.
+> 2. After completing the setup, please manually edit the `controller` section in `config/moveit_controllers.yaml` to add the namespace. If it isn't added automatically, you can add it manually.
+>    For example:
+>
+> ```yaml
+> gbt_c16a_arm_controller:
+>   action_ns: follow_joint_trajectory  # ✅ Must specify the action namespace
+>   type: FollowJointTrajectory
+> ```
+
+---
 
 ## Dependencies
+
 - ROS2 Humble
 - RViz2
 - MoveIt2
@@ -37,9 +54,11 @@ source install/setup.bash
 ### Launch MoveIt2 Configuration
 
 ```bash
-ros2 launch {robot_model}_moveit_config demo.launch.py
+ros2 launch <robot_type>_moveit_config demo.launch.py
 ```
+
 For example:
+
 ```bash
 ros2 launch c5a_moveit_config demo.launch.py
 ```
@@ -47,27 +66,35 @@ ros2 launch c5a_moveit_config demo.launch.py
 ### Launch MoveIt2 + Gazebo Simulation
 
 **Terminal 1**: Launch Gazebo simulation
+
 ```bash
 source install/setup.bash
-ros2 launch {robot_model}_moveit_config gazebo.launch.py
+ros2 launch <robot_type>_moveit_config gazebo.launch.py
 ```
+
 For example:
+
 ```bash
 source install/setup.bash
 ros2 launch c5a_moveit_config gazebo.launch.py
 ```
 
 **Terminal 2**: Launch MoveIt2 motion planning
+
 ```bash
 source install/setup.bash
-ros2 launch {robot_model}_moveit_config gazebo_moveit_rviz.launch.py
+ros2 launch <robot_type>_moveit_config gazebo_moveit_rviz.launch.py
 ```
+
 For example:
+
 ```bash
 source install/setup.bash
 ros2 launch c5a_moveit_config gazebo_moveit_rviz.launch.py
 ```
 
+>robot_type options：`c5a`、`c7a`、`c12a`、`c16a`
+>
 ## Examples
 
 **MoveIt**
@@ -81,19 +108,20 @@ ros2 launch c5a_moveit_config gazebo_moveit_rviz.launch.py
 
 ## Future Development Plans
 
-- [ ] Add MoveIt2 configuration files for robots
-   - [x] GBT-C5A series robotic arm
-   - [ ] GBT-C12A series robotic arm
-   - [ ] Additional collaborative robot models
+- [x] Add MoveIt2 configuration files for robots
+  - [x] GBT-C5A series robotic arm
+  - [x] GBT-C12A series robotic arm
+  - [x] Additional collaborative robot models
 
 - [ ] Support for more robotic arm types
-   - [ ] Puma series robotic arms (e.g., GBT-P7B series)
-   - [ ] Scara series robotic arms (e.g., GBT-S3A series)
+  - [ ] Puma series robotic arms (e.g., GBT-P7B series)
+  - [ ] Scara series robotic arms (e.g., GBT-S3A series)
 
 ## Troubleshooting
 
 - If MoveIt2 planning fails, check the terminal output for errors and try adjusting the target position.
--  If MoveIt2 execution fails, check if the controller name configuration in `config/ros2_controller.yaml` matches the setup in the launch file.
+- If MoveIt2 execution fails, check if the controller name configuration in `config/ros2_controller.yaml` matches the setup in the launch file.
 
 ## License
+
 This project is licensed under the [BSD-3-clause License](https://opensource.org/license/BSD-3-clause).

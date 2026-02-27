@@ -1,56 +1,53 @@
-from moveit_configs_utils import MoveItConfigsBuilder
-from moveit_configs_utils.launches import generate_moveit_rviz_launch
+"""
+Copyright © 2026 Agilebot Robotics Ltd. All rights reserved.
+Instruction:
+This file is used to launch MoveIt and RViz for robotic arm simulation and debugging in Gazebo.
+
+functions:
+- Start MoveIt nodes to support motion planning.
+- Start RViz for visualization.
+
+"""
 
 from launch import LaunchDescription
-from launch.actions import (
-    DeclareLaunchArgument,
-    IncludeLaunchDescription,
-)
-from moveit_configs_utils.launch_utils import (
-    add_debuggable_node,
-    DeclareBooleanLaunchArg,
-)
+from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.parameter_descriptions import ParameterValue
+from moveit_configs_utils import MoveItConfigsBuilder
+from moveit_configs_utils.launch_utils import (
+    DeclareBooleanLaunchArg,
+    add_debuggable_node,
+)
+from moveit_configs_utils.launches import generate_moveit_rviz_launch
 
-"""
-文件说明：
-该文件用于启动 MoveIt 和 RViz，以便在 Gazebo 中进行机械臂的仿真和调试。
-
-功能：
-- 启动 MoveIt 节点以支持运动规划。
-- 启动 RViz 以进行可视化。
-- 将joint state 发送到 gazebo 进行仿真。
-"""
 
 def generate_launch_description():
-    # 创建MoveItConfigsBuilder对象，用于生成MoveIt配置
-    moveit_config = MoveItConfigsBuilder("c5a_description", package_name="c5a_moveit_config").to_moveit_configs() 
+    # Create MoveItConfigsBuilder object to generate MoveIt configuration
+    moveit_config = MoveItConfigsBuilder(
+        "c5a_description", package_name="c5a_moveit_config"
+    ).to_moveit_configs()
 
-    # 创建LaunchDescription对象，用于启动节点
     ld = LaunchDescription()
 
-    # 启动move_group
+    # move_group
     gbt_generate_move_group_launch(ld, moveit_config)
-    # 启动rviz
+    # rviz
     gbt_generate_moveit_rviz_launch(ld, moveit_config)
 
-    # 返回LaunchDescription对象
     return ld
 
 
 def gbt_generate_move_group_launch(ld, moveit_config):
     """
-    配置并添加 move_group 节点的启动参数和节点到 LaunchDescription。
+    Configure and add the move_group node's launch arguments and nodes to the LaunchDescription.
     """
-
-    # 添加一个布尔类型的启动参数，用于调试，默认值为False
+    # Add a boolean type of launch parameter for debugging, the default value is False
     ld.add_action(DeclareBooleanLaunchArg("debug", default_value=False))
-    # 添加一个布尔类型的启动参数，用于允许轨迹执行，默认值为True
+    # add a boolean type of launch parameter for allowing trajectory execution, the default value is True
     ld.add_action(
         DeclareBooleanLaunchArg("allow_trajectory_execution", default_value=True)
     )
-    # 添加一个布尔类型的启动参数，用于发布监控规划场景，默认值为True
+    # add a boolean type of launch parameter for publishing monitored planning scene, the default value is True
     ld.add_action(
         DeclareBooleanLaunchArg("publish_monitored_planning_scene", default_value=True)
     )
@@ -89,7 +86,7 @@ def gbt_generate_move_group_launch(ld, moveit_config):
     ]
     move_group_params.append({"use_sim_time": True})
 
-    # 添加可调试的 move_group 节点
+    # add a debuggable node for move_group
     add_debuggable_node(
         ld,
         package="moveit_ros_move_group",
@@ -103,14 +100,15 @@ def gbt_generate_move_group_launch(ld, moveit_config):
     )
     return ld
 
+
 def gbt_generate_moveit_rviz_launch(ld, moveit_config):
     """
-    配置并添加 RViz 节点的启动参数到 LaunchDescription。
+    Add the RViz node's launch arguments to the LaunchDescription.
     """
 
-    # 添加一个布尔类型的启动参数，默认值为False
+    # add a boolean type of launch parameter for debugging, the default value is False
     ld.add_action(DeclareBooleanLaunchArg("debug", default_value=False))
-    # 添加 RViz 配置文件参数，默认为 MoveIt 配置中的 RViz 文件，默认值为config/moveit.rviz
+    # add a launch argument for RViz configuration file, default value is config/moveit.rviz
     ld.add_action(
         DeclareLaunchArgument(
             "rviz_config",
@@ -118,15 +116,16 @@ def gbt_generate_moveit_rviz_launch(ld, moveit_config):
         )
     )
 
-    # 定义rviz的参数
+    # define rviz parameters
     rviz_parameters = [
         moveit_config.planning_pipelines,
         moveit_config.robot_description_kinematics,
     ]
-    # 添加一个参数，使用仿真时间
+
+    # add a parameter, use simulation time
     rviz_parameters.append({"use_sim_time": True})
 
-    # 添加一个可调试的节点，使用rviz2包，可执行文件为rviz2，输出为log，参数为rviz_config和rviz_parameters
+    # add a debuggable node for rviz
     add_debuggable_node(
         ld,
         package="rviz2",
@@ -137,5 +136,4 @@ def gbt_generate_moveit_rviz_launch(ld, moveit_config):
         parameters=rviz_parameters,
     )
 
-    # 返回launch描述符
     return ld

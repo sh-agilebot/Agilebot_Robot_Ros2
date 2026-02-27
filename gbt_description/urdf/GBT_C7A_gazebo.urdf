@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="GBT-C7A">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-5.26704954492915E-06 -0.0098126576895962 0.0491108287185979"
+        rpy="0 0 0" />
+      <mass
+        value="9.16040326523465" />
+      <inertia
+        ixx="0.0419458054611511"
+        ixy="1.03351238796275E-05"
+        ixz="-1.16385212137257E-06"
+        iyy="0.0160795355795088"
+        iyz="-0.00415210835016869"
+        izz="0.0465550656362786" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_base.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-2.2231E-07 0.0039863 0.082573"
+        rpy="0 0 0" />
+      <mass
+        value="15.175" />
+      <inertia
+        ixx="0.047239"
+        ixy="-1.1092E-08"
+        ixz="6.1658E-07"
+        iyy="0.045942"
+        iyz="-0.00010066"
+        izz="0.029088" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_1.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.094"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.283185307179"
+      upper="6.283185307179"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.175 -2.4749E-07 0.082978"
+        rpy="0 0 0" />
+      <mass
+        value="42.406" />
+      <inertia
+        ixx="0.10612"
+        ixy="2.7254E-06"
+        ixz="1.9039E-06"
+        iyy="1.0509"
+        iyz="8.5915E-07"
+        izz="1.0146" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 -1.5707963268" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_2.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.64706 0.64706 0.64706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 -1.5707963268" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 0.063 0.084"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.483529864195"
+      upper="4.625122517784"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="-0.14241 6.1389E-07 0.056555"
+        rpy="0 0 0" />
+      <mass
+        value="22.494" />
+      <inertia
+        ixx="0.03219"
+        ixy="-6.2382E-08"
+        ixz="0.014535"
+        iyy="0.36351"
+        iyz="6.3874E-08"
+        izz="0.35645" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="3.1415926535 0 -1.5707963268" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_3.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="3.1415926535 0 -1.5707963268" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="0.35 0 0"
+      rpy="-3.1416 0 3.1416" />
+    <parent
+      link="link2" />
+    <child
+      link="link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.809980095710"
+      upper="2.809980095710"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link4">
+    <inertial>
+      <origin
+        xyz="1.2977E-07 0.0036933 0.046819"
+        rpy="0 0 0" />
+      <mass
+        value="5.9624" />
+      <inertia
+        ixx="0.01117"
+        ixy="8.492E-08"
+        ixz="1.0592E-08"
+        iyy="0.0057359"
+        iyz="-0.00011927"
+        izz="0.010395" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_4.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963268 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_4.STL"   />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="revolute">
+    <origin
+      xyz="-0.3117 0 -0.0083"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="link3" />
+    <child
+      link="link4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.483529864195"
+      upper="4.625122517784"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link5">
+    <inertial>
+      <origin
+        xyz="1.3304E-07 -0.00083634 -0.04715"
+        rpy="0 0 0" />
+      <mass
+        value="6.3691" />
+      <inertia
+        ixx="0.013244"
+        ixy="1.0431E-07"
+        ixz="3.2379E-08"
+        iyy="0.0060649"
+        iyz="-1.9476E-05"
+        izz="0.012458" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_5.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="revolute">
+    <origin
+      xyz="0 0.0713 0.052"
+      rpy="1.5708 0 0" />
+    <parent
+      link="link4" />
+    <child
+      link="link5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-6.283185307179"
+      upper="6.283185307179"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="link6">
+    <inertial>
+      <origin
+        xyz="3.8813E-08 0.00017432 0.012497"
+        rpy="0 0 0" />
+      <mass
+        value="1.0139" />
+      <inertia
+        ixx="0.00046196"
+        ixy="1.8319E-11"
+        ixz="-3.9805E-12"
+        iyy="0.00046763"
+        iyz="-6.4994E-08"
+        izz="0.00080288" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/visual/c7a/c7a_6.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 1.5707963268 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find gbt_description)/meshes/collision/c7a/c7a_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint6"
+    type="revolute">
+    <origin
+      xyz="0 0.0713 -0.052"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link5" />
+    <child
+      link="link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-6.283185307179"
+      upper="6.283185307179"
+      effort="100"
+      velocity="1" />
+  </joint>
+</robot>

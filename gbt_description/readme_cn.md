@@ -1,5 +1,4 @@
 
-
 ## 项目简介
 
 该项目包含了上海捷勃特所有型号机械臂的URDF文件，用户可以通过此项目在RViz中可视化机械臂，并在ROS2生态中进行仿真和控制。当前仅包含**GBT-C5A系列机械臂**，但未来将逐步添加更多机器人型号和功能。该URDF模型专为在ROS2中实现机械臂的**仿真**和**可视化**而设计。
@@ -53,13 +52,13 @@
    在终端中输入以下命令，以在RViz中可视化机械臂：
 
    ```bash
-   ros2 launch gbt_description display_{机器人型号}.launch.py
+   ros2 launch gbt_description display_robot.launch.py <robot_type>:=<机器人型号>
    ```
 
    例如，对于GBT-C5A机械臂，命令如下：
 
    ```bash
-   ros2 launch gbt_description display_c5a.launch.py
+   ros2 launch gbt_description display_robot.launch.py robot_type:=C5A
    ```
 
 ## 使用示例
@@ -67,8 +66,8 @@
 **启动RViz可视化urdf**
 ![](../assets/rviz.png)
 
-> 示例：在RViz中查看GBT-C5A机械臂的可视化效果。确保文件路径正确，以便用户可以找到`rviz.png`，或根据需求替换该图片。
-
+> 示例：在RViz中查看GBT-C5A机械臂的可视化效果。
+>
 ## 注意事项
 
 - 请确保所有必要的依赖已正确安装。
@@ -79,23 +78,20 @@
 - **URDF未正确加载**：请检查文件路径和URDF文件格式，确保路径正确无误。
 - **RViz未显示模型**：确保在启动RViz之前已正确运行`source install/setup.bash`，以加载ROS2的工作环境。
 
-
 ## 后续开发计划
 
-- [x] 添加写作机器人的URDF文件
-   - [x] GBT-C5A系列机械臂
-   - [ ] GBT-C12A系列机械臂
-   - [ ] 更多协作机器人型号
+- [x] 添加协作机器人的URDF文件
+  - [x] GBT-C5A系列机械臂
+  - [x] GBT-C7A系列机械臂
+  - [x] GBT-C12A系列机械臂
+  - [x] GBT-C16A系列机械臂
 - [ ] 添加Puma机械臂的URDF文件
-   - [ ] GBT-P7B系列机械臂
-   - [ ] 更多Puma机器人型号
+  - [ ] GBT-P7B系列机械臂
+  - [ ] 更多Puma机器人型号
 
 - [ ] 添加Scara机械臂的URDF文件
-   - [ ] GBT-S3A系列机械臂
-   - [ ] 更多Scara机器人型号
-
-
-
+  - [ ] GBT-S3A系列机械臂
+  - [ ] 更多Scara机器人型号
 
 ## 贡献
 
@@ -112,4 +108,3 @@
 - **允许**：自由使用、修改和分发代码。
 - **要求**：保留原始的版权声明。
 - **免责声明**：作者不对使用本项目造成的任何直接或间接损害负责。
-

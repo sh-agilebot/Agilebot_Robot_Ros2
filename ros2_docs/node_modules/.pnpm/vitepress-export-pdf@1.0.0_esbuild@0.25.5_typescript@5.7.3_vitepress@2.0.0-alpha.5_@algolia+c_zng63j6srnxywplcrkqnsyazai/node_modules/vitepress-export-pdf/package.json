@@ -1,0 +1,88 @@
+{
+  "name": "vitepress-export-pdf",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "VitePress export PDF",
+  "author": "CondorHero",
+  "license": "MIT",
+  "homepage": "https://github.com/condorheroblog/vitepress-export-pdf#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/condorheroblog/vitepress-export-pdf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/condorheroblog/vitepress-export-pdf/issues"
+  },
+  "keywords": [
+    "vitepress-plugin-export-pdf",
+    "vitepress-export-pdf",
+    "vitepress-pdf",
+    "vitepress"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "bin": {
+    "press-export-pdf": "bin/press-export-pdf.mjs"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "examples/*"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vitepress": ">=1.0.0-alpha.35"
+  },
+  "dependencies": {
+    "@condorhero/vuepress-plugin-export-pdf-core": "^3.0.3",
+    "debug": "^4.3.4",
+    "hash-sum": "^2.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.17.0",
+    "@types/debug": "^4.1.12",
+    "@types/hash-sum": "^1.0.2",
+    "bumpp": "^9.4.1",
+    "eslint": "^9.2.0",
+    "esno": "^4.7.0",
+    "fast-glob": "^3.3.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "typescript": "^5.4.5",
+    "unbuild": "^2.0.0",
+    "vitepress": "^1.1.4",
+    "vitest": "^1.6.0"
+  },
+  "scripts": {
+    "release": "bumpp -r && pnpm -r publish",
+    "dev": "esno ./src/commands/press-export-pdf.ts export ./example/vitepress-docs",
+    "coverage": "vitest run --coverage",
+    "lint:fix": "eslint . --fix",
+    "lint": "eslint .",
+    "test": "vitest",
+    "build": "unbuild"
+  }
+}

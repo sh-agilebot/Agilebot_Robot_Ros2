@@ -1,0 +1,11 @@
+# Service for controlling the execution state of a program
+
+# Request part
+string command        # Command to execute: "start", "stop", "pause", "resume"
+string program_name   # Name of the program
+
+---
+
+# Response part
+bool success          # Whether the operation was successful
+string message        # Status or error message

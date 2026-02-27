@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="c5a_description">
 
-    <!-- Used for fixing robot to Gazebo 'base_link' 将机械手的基座固定在世界坐标上-->
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
     <link name="world"/>
     <joint name="fixed" type="fixed">
         <parent link="world"/>
@@ -12,34 +12,34 @@
     <xacro:include filename="$(find gbt_description)/urdf/GBT_C5A_gazebo.urdf" />
 
 
-    <!-- 对一些link进行gazebo的属性设置 -->
+    <!-- Set Gazebo properties for certain links. -->
     <gazebo reference="base_link">
         <self_collide>false</self_collide>
         <gravity>false</gravity>
     </gazebo>
     <gazebo reference="link1">
-        <material>Gazebo/White</material>
+        <!-- <material>Gazebo/White</material> -->
         <self_collide>false</self_collide>
         <gravity>false</gravity>
     </gazebo>
     <gazebo reference="link2">
-        <material>Gazebo/Red</material>
+        <!-- <material>Gazebo/Red</material> -->
         <gravity>false</gravity>
     </gazebo>
     <gazebo reference="link3">
-        <material>Gazebo/Green</material>
+        <!-- <material>Gazebo/Green</material> -->
         <gravity>false</gravity>
     </gazebo>
     <gazebo reference="link4">
-        <material>azebo/Orange</material>
+        <!-- <material>azebo/Orange</material> -->
         <gravity>false</gravity>
     </gazebo>
     <gazebo reference="link5">
-        <material>Gazebo/Gray</material>
+        <!-- <material>Gazebo/Gray</material> -->
         <gravity>false</gravity>
     </gazebo>
     <gazebo reference="link6">
-        <material>Gazebo/Yellow</material>
+        <!-- <material>Gazebo/Yellow</material> -->
         <gravity>false</gravity>
     </gazebo>
 
@@ -50,7 +50,7 @@
     </gazebo>
 
 
-    <!-- 声明ros2_control -->
+    <!-- ros2_control -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
@@ -99,7 +99,7 @@
         </joint>
     </ros2_control>
 
-    <!-- 加载ros2_control插件 -->
+    <!-- load ros2_control plugin-->
     <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <parameters>$(find c5a_moveit_config)/config/ros2_controllers.yaml</parameters>

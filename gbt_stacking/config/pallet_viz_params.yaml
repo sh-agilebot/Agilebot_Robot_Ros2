@@ -1,0 +1,18 @@
+# This file is used to configure the pallet visualizer
+stacking_visualizer:                                  
+  ros__parameters:
+    # Robot config file path
+    robot_config_path: "config/robot_config.yaml"
+
+  
+
+    # Box size (mm), format [w, l, h]
+    box_size: [50.0, 50.0, 50.0]
+
+
+
+    # Timer callback interval (s)
+    timer_interval: 0.05
+
+    # Position tolerance (mm)
+    pose_tolerance: 0.5
