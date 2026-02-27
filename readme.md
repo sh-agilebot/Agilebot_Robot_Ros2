@@ -10,6 +10,12 @@
 
 This repository provides ROS2 support for Shanghai Agilebot Robotics products (official website: [http://www.sh-agilebot.com](http://www.sh-agilebot.com)). It includes URDF description files, Gazebo configurations, and MoveIt2 configurations, as well as MoveIt2 motion planning, offline trajectory execution, and various demos and examples.
 
+## About Agilebot
+
+Shanghai Agilebot Robotics focuses on industrial robots and intelligent conveying systems, delivering robot hardware, control systems, and software solutions for smart manufacturing scenarios. Built on strengths in motion control, integrated drive-and-control architecture, and system integration, Agilebot continuously provides high-performance, easy-to-deploy, and scalable automation products and services.
+
+![Agilebot Smart Manufacturing Scenario](assets/agilebot_intro.png)
+
 ```
 ├── assets                        # Asset files
 ├── common                        # Common utilities
