@@ -16,6 +16,8 @@ Shanghai Agilebot Robotics focuses on industrial robots and intelligent conveyin
 
 ![Agilebot Smart Manufacturing Scenario](assets/agilebot_intro.png)
 
+
+## Project Structure
 ```
 ├── assets                        # Asset files
 ├── common                        # Common utilities
